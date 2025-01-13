@@ -21,8 +21,6 @@ class Login extends Component {
     sendData = () => {
         axios.post(`/api/login`, this.state.loginData)
         .then(res => {
-            console.log(res)
-            console.log(this.context)
             this.context.authenticate(res.data.token, res.data.user.admin)
         })
         .catch(err => {

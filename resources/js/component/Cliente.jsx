@@ -80,6 +80,7 @@ class Client extends Component {
 
     componentDidMount(){
         this.getClients()
+        console.log(this.context)
     }
 
     render = () => (
@@ -89,7 +90,7 @@ class Client extends Component {
                     <div className="card mt-4">
                         <div className="card-header d-flex justify-content-between align-items-center">
                             <span>Clientes</span>
-                            {this.context.isAdmin === true && <button className="btn btn-sm btn-outline-dark" onClick={() => this.modalStatus()}><i className="bi bi-plus"></i></button>}
+                            {this.context.isAdmin == 1 && <button className="btn btn-sm btn-outline-dark" onClick={() => this.modalStatus()}><i className="bi bi-plus"></i></button>}
                         </div>
                         <div className="card-body">
                             <DataTable value={this.state.clients} rows={10} dataKey="id"  selectionMode="single" selection={this.state.selectedClient} onSelectionChange={(e) => this.showClientData(e.value)} paginator unstyled pt={{
